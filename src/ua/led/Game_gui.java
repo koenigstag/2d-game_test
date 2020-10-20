@@ -669,7 +669,7 @@ public class Game_gui implements KeyListener, ActionListener {
 									}
 								}
 							} else {
-								if (a.alien_side == "left") {
+								if (a.alien_side.equals("left")) {
 
 									if (p.proj_coords_x <= a.alien_coords_x + alien_size.x / 2) {
 
