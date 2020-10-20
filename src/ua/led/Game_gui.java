@@ -187,27 +187,6 @@ public class Game_gui implements KeyListener, ActionListener {
 		drawPanel.setBounds(0, 0, frame_w - 5, frame_h - 31);
 		drawPanel.setLayout(null);
 
-		JPanel otherPanel = new JPanel(new BorderLayout()) {
-			@Override
-			public void paintComponent(Graphics g) {
-				super.paintComponent(g);
-
-				// Apply our own painting effect
-				Graphics2D g2d = (Graphics2D) g.create();
-				// 50% transparent Alpha
-				g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.5f));
-
-				g2d.setColor(getBackground());
-				g2d.fillRect(0, 0, getWidth(), getHeight());
-
-				g2d.dispose();
-			}
-		};
-		otherPanel.setOpaque(false);
-		frame.getContentPane().add(otherPanel);
-
-		otherPanel.setBackground(new Color(0, 0, 250, 255));
-
 		// Pause btn
 
 		toggleBtnStartStop.setBounds(17, 13, 137, 25);
