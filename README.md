@@ -1,2 +1,2 @@
-# 2d-game_test
-JFrame 2d game
+# Simple 2d-game
+Simple JFrame 2d game
