@@ -124,7 +124,7 @@ public class Game_gui implements KeyListener, ActionListener {
 			alien_side = side;
 			alien_type = type;
 			alien_speed = speed;
-			if (side == "right")
+			if (side.equals("right"))
 				alien_coords_x = alien_start_coords_r.x;
 			else
 				alien_coords_x = alien_start_coords_l.x;
@@ -153,7 +153,7 @@ public class Game_gui implements KeyListener, ActionListener {
 		public Proj(String side, double speed) {
 			proj_side = side;
 			proj_speed = speed;
-			if (side == "right")
+			if (side.equals("right"))
 				proj_coords_x = proj_start_coords_r.x;
 			else
 				proj_coords_x = proj_start_coords_l.x;
@@ -171,8 +171,6 @@ public class Game_gui implements KeyListener, ActionListener {
 	private long level_delay = 5500L;
 	private double level_speed = 1.2;
 	private int count_killed = 0;
-
-	private final JPanel panel = new JPanel();
 
 	/**
 	 * Initialize the contents of the frame.
@@ -301,10 +299,6 @@ public class Game_gui implements KeyListener, ActionListener {
 		frame.getContentPane().add(alien_panel_l);
 
 		frame.getContentPane().add(drawPanel);
-
-		panel.setBackground(Color.BLUE);
-		panel.setBounds(455, 45, 20, 40);
-		frame.getContentPane().add(panel);
 
 		TimerTask repeatedTask = new TimerTask() {
 			public void run() {
@@ -443,7 +437,7 @@ public class Game_gui implements KeyListener, ActionListener {
 			if (!pause_state) {
 				if (!proj_timer_started) {
 
-					if (Side_aimed == "right") {
+					if (Side_aimed.equals("right")) {
 						proj_panel_r.setVisible(true);
 						proj_slide_r = 0;
 					} else {
@@ -501,7 +495,7 @@ public class Game_gui implements KeyListener, ActionListener {
 			if (projectiles.size() >= 1) {
 				for (int i = 0; i < projectiles.size(); i++) {
 					p = projectiles.get(i);
-					if (p.proj_side == "right") {
+					if (p.proj_side.equals("right")) {
 						p.proj_coords_x += 20;
 						proj_slide_r += 20;
 						proj_panel_r.setBounds(proj_start_coords_r.x + proj_slide_r, proj_start_coords_r.y, proj_size.x,
@@ -529,7 +523,7 @@ public class Game_gui implements KeyListener, ActionListener {
 			if (aliens.size() >= 1) {
 				for (int i = 0; i < aliens.size(); i++) {
 					a = aliens.get(i);
-					if (a.alien_side == "right") {
+					if (a.alien_side.equals("right")) {
 						if (a.alien_coords_x <= (frame_w + Pendalf_size.x - 80) / 2) {
 							Pendalf_health--;
 							switch (Pendalf_health) {
@@ -608,8 +602,8 @@ public class Game_gui implements KeyListener, ActionListener {
 							p = projectiles.get(i);
 							a = aliens.get(j);
 
-							if (p.proj_side == "right") {
-								if (a.alien_side == "right") {
+							if (p.proj_side.equals("right")) {
+								if (a.alien_side.equals("right")) {
 
 									if (p.proj_coords_x + proj_size.x >= a.alien_coords_x + alien_size.x / 2) {
 
